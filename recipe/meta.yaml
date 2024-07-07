@@ -1,13 +1,13 @@
 {% set name = "dmri-amico" %}
-{% set version = "2.0.1" %}
+{% set version = "2.0.3" %}
 
 package:
   name: {{ name|lower }}
   version: {{ version }}
 
 source:
-  url: https://pypi.io/packages/source/{{ name[0] }}/{{ name }}/{{ name }}-{{ version }}.tar.gz
-  sha256: 08fe9fe14554656fcfe9862dcdbb40f5cf9fc1cb9af5685435190110b83f1902
+  url: https://pypi.io/packages/source/{{ name[0] }}/{{ name }}/{{ name.replace('-', '_') }}-{{ version }}.tar.gz
+  sha256: 6e18066fd8b80c0aa754c14c9296b4bbce9092a156e940a7f0176723e112cba1
 
   # allow separate libraries for lapack / blas, rather than
   # assuming a single library, i.e.  openblas, for both. See
@@ -16,11 +16,12 @@ source:
     - setup.py.patch
 
 build:
-  number: 1
+  number: 0
 
 requirements:
   build:
     - {{ compiler('c') }}
+    - {{ stdlib("c") }}
     - {{ compiler('cxx') }}
     - cross-python_{{ target_platform }}  # [build_platform != target_platform]
     - python                              # [build_platform != target_platform]
