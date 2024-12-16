@@ -32,6 +32,7 @@ requirements:
     - liblapack
     - python
     - pip
+    - setuptools
     - spams-cython
   run:
     - dipy
