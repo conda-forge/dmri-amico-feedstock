@@ -6,7 +6,7 @@ package:
   version: {{ version }}
 
 source:
-  url: https://pypi.io/packages/source/{{ name[0] }}/{{ name }}/{{ name.replace('-', '_') }}-{{ version }}.tar.gz
+  url: https://pypi.org/packages/source/{{ name[0] }}/{{ name }}/{{ name.replace('-', '_') }}-{{ version }}.tar.gz
   sha256: 6e18066fd8b80c0aa754c14c9296b4bbce9092a156e940a7f0176723e112cba1
 
   # allow separate libraries for lapack / blas, rather than
@@ -16,7 +16,7 @@ source:
     - setup.py.patch
 
 build:
-  number: 0
+  number: 1
 
 requirements:
   build:
@@ -32,6 +32,7 @@ requirements:
     - liblapack
     - python
     - pip
+    - setuptools
     - spams-cython
   run:
     - dipy
