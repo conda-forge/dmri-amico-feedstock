@@ -6,7 +6,7 @@ package:
   version: {{ version }}
 
 source:
-  url: https://pypi.org/packages/source/{{ name[0] }}/{{ name }}/{{ name.replace('-', '_') }}-{{ version }}.tar.gz
+  url: https://files.pythonhosted.org/packages/source/{{ name[0] }}/{{ name }}/{{ name.replace('-', '_') }}-{{ version }}.tar.gz
   sha256: 856e8f3e7c388ef21fde305989cad74d74ea08c49b3ba535dcb5671b29f81f2e
 
   # allow separate libraries for lapack / blas, rather than
@@ -16,7 +16,7 @@ source:
     - setup.py.patch
 
 build:
-  number: 1
+  number: 2
 
 requirements:
   build:
